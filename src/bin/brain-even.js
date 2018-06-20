@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import playGame from '..';
-import playGameCheckEven from '../games/game-CheckEven';
+import gameCheckEven from '../games/game-CheckEven';
 
-const game = playGameCheckEven();
-playGame(game);
+gameCheckEven();

@@ -1,31 +1,32 @@
-import { cons } from 'hexlet-pairs';
-import generateNumber from '../generateNumber';
+import generateNumber, { makeGameData, makeGame } from '../subfunctions';
+import playGame from '..';
 
 const minValue = 1;
 const maxValue = 30;
+const descriptionCalc = 'What is the result of the expression?';
 
-const playGameCalculator = () => {
-  const firstQuestion = 'What is the result of the expression?';
-  const generateQuestion = () => {
-    const operand1 = generateNumber(minValue, maxValue);
-    const operand2 = generateNumber(minValue, maxValue);
-    const numberOfOperation = generateNumber(1, 3);
-    let correctAnswer = 0;
-    let symbolOfOperation = '+';
-    if (numberOfOperation === 1) {
-      correctAnswer = operand1 + operand2;
-      symbolOfOperation = '+';
-    } else if (numberOfOperation === 2) {
-      correctAnswer = operand1 - operand2;
-      symbolOfOperation = '-';
-    } else {
-      correctAnswer = operand1 * operand2;
-      symbolOfOperation = '*';
-    }
-    const secondQuestion = `Question: ${operand1} ${symbolOfOperation} ${operand2}`;
-    return cons(secondQuestion, correctAnswer);
-  };
-  return cons(firstQuestion, generateQuestion);
+const makeDataCalc = () => {
+  const operand1 = generateNumber(minValue, maxValue);
+  const operand2 = generateNumber(minValue, maxValue);
+  const numberOfOperation = generateNumber(1, 3);
+  let answerCalc;
+  let questionCalc;
+  switch (numberOfOperation) {
+    case 1:
+      questionCalc = `Question: ${operand1} + ${operand2}`;
+      answerCalc = operand1 + operand2;
+      break;
+    case 2:
+      questionCalc = `Question: ${operand1} - ${operand2}`;
+      answerCalc = operand1 - operand2;
+      break;
+    default:
+      questionCalc = `Question: ${operand1} * ${operand2}`;
+      answerCalc = operand1 * operand2;
+  }
+  return makeGameData(questionCalc, answerCalc);
 };
 
-export default playGameCalculator;
+const gameCalc = () => playGame(makeGame(descriptionCalc, makeDataCalc));
+
+export default gameCalc;
