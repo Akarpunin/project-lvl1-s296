@@ -5,7 +5,7 @@ const roundsCount = 3;
 
 const getDescription = game => car(game);
 const getData = game => cdr(game)();
-const getQuestionOfGame = data => car(data);
+const getQuestion = data => car(data);
 const getCorrectAnswer = data => cdr(data);
 
 const playGame = (game) => {
@@ -17,9 +17,9 @@ const playGame = (game) => {
   console.log('');
   for (let i = 1; i <= roundsCount; i += 1) {
     const dataOfGame = getData(game);
-    const questionOfGame = getQuestionOfGame(dataOfGame);
+    const question = getQuestion(dataOfGame);
     const correctAnswer = getCorrectAnswer(dataOfGame);
-    console.log(questionOfGame);
+    console.log(`Question: ${question}`);
     const answerByUser = readlineSync.question('Your answer: ');
     if (String(answerByUser) === String(correctAnswer)) {
       console.log('Correct!');
