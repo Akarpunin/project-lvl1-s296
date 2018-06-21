@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import generateNumber from '../subfunctions';
+import generateNumber from '../utils';
 import playGame from '..';
 
 const minValue = 1;

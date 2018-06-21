@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import generateNumber from '../subfunctions';
+import generateNumber from '../utils';
 import playGame from '..';
 
 const minValue = 1;
@@ -15,15 +15,15 @@ const makeData = () => {
   switch (numberOfOperation) {
     case 1:
       question = `${operand1} + ${operand2}`;
-      answer = operand1 + operand2;
+      answer = String(operand1 + operand2);
       break;
     case 2:
       question = `${operand1} - ${operand2}`;
-      answer = operand1 - operand2;
+      answer = String(operand1 - operand2);
       break;
     default:
       question = `${operand1} * ${operand2}`;
-      answer = operand1 * operand2;
+      answer = String(operand1 * operand2);
   }
   return cons(question, answer);
 };

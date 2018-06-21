@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import generateNumber from '../subfunctions';
+import generateNumber from '../utils';
 import playGame from '..';
 
 const minValue = 1;
@@ -11,14 +11,13 @@ const findGCD = (num1, num2) => {
   for (let i = smallestNum; i >= 1; i -= 1) {
     if ((num1 % i === 0) && (num2 % i === 0)) return i;
   }
-  return 1;
 };
 
 const makeData = () => {
   const number1 = generateNumber(minValue, maxValue);
   const number2 = generateNumber(minValue, maxValue);
   const question = `${number1} ${number2}`;
-  const answer = findGCD(number1, number2);
+  const answer = String(findGCD(number1, number2));
   return cons(question, answer);
 };
 

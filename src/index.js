@@ -19,7 +19,7 @@ const playGame = (description, getData) => {
     const correctAnswer = getCorrectAnswer(dataOfGame);
     console.log(`Question: ${question}`);
     const answerByUser = readlineSync.question('Your answer: ');
-    if (String(answerByUser) === String(correctAnswer)) {
+    if (answerByUser === correctAnswer) {
       console.log('Correct!');
       console.log('');
     } else {
