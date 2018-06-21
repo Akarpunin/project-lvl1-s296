@@ -22,6 +22,6 @@ const makeData = () => {
   return cons(question, answer);
 };
 
-const gameGCD = () => playGame(cons(description, makeData));
+const gameGCD = () => playGame(description, makeData);
 
 export default gameGCD;

@@ -28,6 +28,6 @@ const makeData = () => {
   return cons(question, answer);
 };
 
-const gameCalc = () => playGame(cons(description, makeData));
+const gameCalc = () => playGame(description, makeData);
 
 export default gameCalc;

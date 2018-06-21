@@ -14,6 +14,6 @@ const makeData = () => {
   return cons(question, answer);
 };
 
-const gameCheckEven = () => playGame(cons(description, makeData));
+const gameCheckEven = () => playGame(description, makeData);
 
 export default gameCheckEven;
